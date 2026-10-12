@@ -1,5 +1,7 @@
 # ショアのアルゴリズムをQiskitで実装｜位数発見でN=15を素因数分解する
 
+[![run](https://github.com/jumpei1228/quantum-shor-factoring-qiskit/actions/workflows/run.yml/badge.svg)](https://github.com/jumpei1228/quantum-shor-factoring-qiskit/actions/workflows/run.yml)
+
 なぜ量子コンピュータは素因数分解が速いのか。ショアのアルゴリズムの心臓部「位数(周期)発見」を、量子フーリエ変換の逆変換を使ってQiskitで実装し、N=15を実際に素因数分解します。似た名前の「ショア符号」(誤り訂正)との違いにも触れます。
 
 > 📖 このコードの詳しい解説（理論・図解つき）は元記事をどうぞ:

@@ -44,7 +44,7 @@ def qft_dagger(n):
         qc.h(j)
     return qc
 
-from qiskit import QuantumCircuit
+from qiskit import QuantumCircuit, transpile
 from qiskit_aer import AerSimulator
 
 n_count = 3   # 精度レジスタ(位数r=4なら3ビットで十分)
@@ -62,7 +62,9 @@ for j in range(n_count):
 qc.append(qft_dagger(n_count), range(n_count))
 qc.measure(range(n_count), range(n_count))
 
-result = AerSimulator().run(qc, shots=2000).result()
+# 自作のユニタリゲートは、シミュレータが実行できる基本ゲートに変換してから渡す
+sim = AerSimulator()
+result = sim.run(transpile(qc, sim), shots=2000).result()
 counts = result.get_counts()
 print(counts)
 
